@@ -29,6 +29,13 @@ app.post("/detect", async (req, res) => {
   }
 });
 
+app.post("/detect", (req, res) => {
+  res.json({
+    classification: "HUMAN",
+    confidence: 0.5
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
