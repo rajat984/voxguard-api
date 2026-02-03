@@ -13,9 +13,11 @@ const API_KEY = process.env.API_KEY;
 
 app.post("/detect", async (req, res) => {
   try {
-    const { audio_base64, api_key } = req.body;
+   const { audio_base64 } = req.body;
+    const apiKey = req.headers["x-api-key"];
 
-    if (!api_key || api_key !== API_KEY) {
+
+    if (!apiKey || apiKey !== API_KEY) {
       return res.status(401).json({ error: "Invalid API key" });
     }
 
